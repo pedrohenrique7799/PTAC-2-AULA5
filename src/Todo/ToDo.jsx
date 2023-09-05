@@ -13,15 +13,15 @@ export default function ToDo() {
     setId = (id+1);
    };
     return (
-        <div>
-            <h1>Lista de Atividades</h1>
+        <div class="p">
+            <h1 id="gus">Lista de Atividades</h1>
             
             <p>{atividade}</p>
-            <Link to="/">home</Link>
+            <Link to="/" id="gus">home</Link>
            <form onSubmit={salvar}>
-            <input type="text"
+            <input type="text" id="gus"
             onChange={(e) => setAtividade(e.target.value)}/>
-            <button>ADD</button>
+            <button id="gus">ADD</button>
            </form>
            {lista.map((atividade) => <p key={atividade.id}>{atividade.atividade}</p>)}
         </div>

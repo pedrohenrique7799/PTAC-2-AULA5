@@ -1,10 +1,15 @@
-div{
-    margin-left: 400px;
+.p{
+    margin-left: 800px;
     margin-top: 350px;
     background-color:#00FFFF;
-    width: 300px;
+    width: 400px;
+    height: 200px;
     border-radius: 10px;
 }
 body{
     background-color: #20B2AA;
+}
+#gus{
+    margin-left: 60px;
+    margin-top: 50px;
 }
