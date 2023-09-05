@@ -8,6 +8,7 @@ export default function ToDo() {
   const [idade, setIdade] = useState([])
 
   const [id, setId] = useState(1);
+
   const salvar = (e) => {
     e.preventDefault();
     setLista([...lista, { nome: nome, id: id }]);
