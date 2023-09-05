@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.css'
+
 export default function ToDo() {
    const [atividade, setAtividade] = useState("");
    const [lista, setLista] = useState([]);
@@ -14,6 +15,7 @@ export default function ToDo() {
     return (
         <div>
             <h1>Lista de Atividades</h1>
+            
             <p>{atividade}</p>
             <Link to="/">home</Link>
            <form onSubmit={salvar}>
