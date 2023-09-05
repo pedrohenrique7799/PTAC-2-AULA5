@@ -12,4 +12,9 @@ body{
 #gus{
     margin-left: 60px;
     margin-top: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+button{
+    background-color: black;
+    color: white;
 }
