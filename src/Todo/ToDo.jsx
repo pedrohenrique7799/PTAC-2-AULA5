@@ -3,52 +3,54 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function ToDo() {
-  const [nome, setNome] = useState("");
-  const [lista, setLista] = useState([]);
-  const [idade, setIdade] = useState("")
+    const [nome, setNome] = useState("");
+    const [lista, setLista] = useState([]);
+    const [id, setId] = useState(1);
+    const [idade, setIdade] = useState("");
+    const salvar = (e) => {
+        e.preventDefault();
+        setLista([...lista, {
+            nome: nome,
+            id: id,
+            idade:idade
+        }]);
+        setId(id + 1);
+        setNome("");
+        setIdade("");
+    };
+    const remover = (id) => {
+        /*setLista(lista.filter((ativ) => (ativ.id !== id ? lista : null)));*/
+        const auxLista = [];
+        lista.map((lista) => {
+            if (lista.id !== id) {
+                auxLista.push(lista);
+            }
+        });
+        setLista(auxLista);
+    }
+    return (
+        <div className="p">
+            <Link className="gus" to="/">home</Link>
+            <h1 className="gus" >Lista de Nomes</h1>
+            <form onSubmit={salvar}>
+                <input className="gus" type="text"
+                    value={nome}
+                    onChange={(e) => { setNome(e.target.value) }} />
 
-  const [id, setId] = useState(1);
+                    <input className="inp" type="text"
+                    value={idade}
+                    onChange={(e) => { setIdade(e.target.value) }} />
 
-  const salvar = (e) => {
-    e.preventDefault();
-    setLista([...lista, { id: id, nome: nome, idade: idade }]);
-    console.log(lista);
-    setId(id + 1);
-    setNome("");
-    setIdade("");
-  };
-  const remover = (id) => {
-    const auxLista = [];
-    lista.map((lista) => {
-      if (lista.id !== id){
-        auxLista.push(lista);
-      }
-    });
-    setLista(reLista);
-  }
-  return (
-    <div className="p">
-      <h1 id="gus">Lista de jogadores</h1>
-
-      <Link to="/" id="gus">
-        home
-      </Link>
-      <form onSubmit={salvar}>
-        <input value={nome} type="text" id="gus" onChange={(e) => setNome(e.target.value)} />
-      
-        <input value={idade} type="text" id="inp" onChange={(e) => setIdade(e.target.value)}/>
-        <button id="gus">ADD</button>
-      </form>
-      <div>
-      {lista.map((nome) => (
-        <ul key={nome.id}>
-         <li> 
-        <p>{nome.id} {nome.nome} {nome.idade}</p>  
-         </li>
-          </ul>
-      ))}
-      <button className="remove-button" onClick={() => remover(nome.id)}>Remover Jogador</button>
-      </div>
-    </div>
-  );
+                <button>ADICIONAR</button>
+            </form>
+            {lista.map((ativ) =>
+                <ul key={ativ.id}>
+                    <li>
+                        <p>{ativ.id} {ativ.nome} {ativ.idade}</p>
+                        <button onClick={() => remover(ativ.id)}>Remover</button>
+                    </li>
+                </ul>
+            )}
+        </div>
+    );
 }
