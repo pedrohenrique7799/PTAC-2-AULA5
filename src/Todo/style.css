@@ -2,8 +2,8 @@
     margin-left: 450px;
     margin-top: 250px;
     background-color:#00FFFF;
-    width: 400px;
-    height: 200px;
+    width: 600px;
+    height: 400px;
     border-radius: 10px;
 }
 body{
@@ -17,4 +17,8 @@ body{
 button{
     background-color: black;
     color: white;
+}
+.inp{
+    margin-top: 20px;
+    margin-left: 60px;
 }

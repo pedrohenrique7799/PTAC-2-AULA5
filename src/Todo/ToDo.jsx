@@ -3,34 +3,42 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function ToDo() {
-  const [nome, setNome] = useState([]);
+  const [nome, setNome] = useState("");
   const [lista, setLista] = useState([]);
-  const [idade, setIdade] = useState([])
+  const [idade, setIdade] = useState("")
 
   const [id, setId] = useState(1);
 
   const salvar = (e) => {
     e.preventDefault();
-    setLista([...lista, { nome: nome, id: id }]);
+    setLista([...lista, { id: id, nome: nome, idade: idade }]);
     console.log(lista);
-    setId = id + 1;
+    setId(id + 1);
+    setNome("");
+    setIdade("");
   };
   return (
-    <div class="p">
+    <div className="p">
       <h1 id="gus">Lista de jogadores</h1>
 
-      <p>{nome}</p>
       <Link to="/" id="gus">
         home
       </Link>
       <form onSubmit={salvar}>
         <input type="text" id="gus" onChange={(e) => setNome(e.target.value)} />
+      
+        <input type="text" id="inp" onChange={(e) => setIdade(e.target.value)}/>
         <button id="gus">ADD</button>
-        <input></input>
       </form>
+      <div>
       {lista.map((nome) => (
-        <p key={nome.id}>{nome.nome}</p>
+        <ul key={nome.id}>
+         <li> 
+        <p>{nome.id} {nome.nome} {nome.idade}</p>  
+         </li>
+          </ul>
       ))}
+      </div>
     </div>
   );
 }
