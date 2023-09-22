@@ -25,9 +25,9 @@ export default function ToDo() {
         home
       </Link>
       <form onSubmit={salvar}>
-        <input type="text" id="gus" onChange={(e) => setNome(e.target.value)} />
+        <input value={nome} type="text" id="gus" onChange={(e) => setNome(e.target.value)} />
       
-        <input type="text" id="inp" onChange={(e) => setIdade(e.target.value)}/>
+        <input value={idade} type="text" id="inp" onChange={(e) => setIdade(e.target.value)}/>
         <button id="gus">ADD</button>
       </form>
       <div>
