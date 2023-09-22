@@ -17,6 +17,15 @@ export default function ToDo() {
     setNome("");
     setIdade("");
   };
+  const remover = (id) => {
+    const auxLista = [];
+    lista.map((lista) => {
+      if (lista.id !== id){
+        auxLista.push(lista);
+      }
+    });
+    setLista(reLista);
+  }
   return (
     <div className="p">
       <h1 id="gus">Lista de jogadores</h1>
@@ -38,6 +47,7 @@ export default function ToDo() {
          </li>
           </ul>
       ))}
+      <button className="remove-button" onClick={() => remover(nome.id)}>Remover Jogador</button>
       </div>
     </div>
   );
