@@ -7,7 +7,7 @@ export default function ToDo() {
     const listaLocalStorage = localStorage.getItem("lista");
     const [nome, setNome] = useState("");
     const [lista, setLista] = useState(JSON.parse(listaLocalStorage) || []);
-    const [id, setId] = useState(1);
+    const [id, setId] = useState(listaLocalStorage [listaLocalStorage.length - 1]?.id + 1 || 1);
     const [idade, setIdade] = useState("");
 
     useEffect(() => { localStorage.setItem("lista", JSON.stringify(lista)) },[lista]);
