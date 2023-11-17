@@ -7,17 +7,17 @@ export default function ToDo() {
     const listaLocalStorage = localStorage.getItem("lista");
     const [nome, setNome] = useState("");
     const [lista, setLista] = useState(JSON.parse(listaLocalStorage) || []);
-    const [id, setId] = useState(listaLocalStorage [listaLocalStorage.length - 1]?.id + 1 || 1);
+    const [id, setId] = useState(listaLocalStorage[listaLocalStorage.length - 1]?.id + 1 || 1);
     const [idade, setIdade] = useState("");
 
-    useEffect(() => { localStorage.setItem("lista", JSON.stringify(lista)) },[lista]);
+    useEffect(() => { localStorage.setItem("lista", JSON.stringify(lista)) }, [lista]);
 
     const salvar = (e) => {
         e.preventDefault();
         setLista([...lista, {
             nome: nome,
             id: id,
-            idade:idade
+            idade: idade
         }]);
         setId(id + 1);
         setNome("");
@@ -42,7 +42,7 @@ export default function ToDo() {
                     value={nome}
                     onChange={(e) => { setNome(e.target.value) }} />
 
-                    <input className="inp" type="text"
+                <input className="inp" type="text"
                     value={idade}
                     onChange={(e) => { setIdade(e.target.value) }} />
 
